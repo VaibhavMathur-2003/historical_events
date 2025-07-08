@@ -84,21 +84,21 @@ http://localhost:3000/api
 - **Response:**
   ```json
   {
-    "jobId": "ingest-job-acf8ec62-df3b-4fb7-903a-352f91472cff",
+    "jobId": "ingest-job-19ecfbdd-eb51-4f47-bad2-d7df59292058",
     "status": "COMPLETED",
     "processedLines": 27,
     "errorLines": 6,
     "totalLines": 33,
     "errors": [
-      "Line 6: Invalid event_id format (must be UUID): 'malformed-id-1|Broken Event|2023-01-02T09:00:00Z|2023-01-02T10:00:00Z|NULL|5|Missing one field.'",
-      "Line 7: Invalid event_id format (must be UUID): 'invalid-value|Negative Research Value|2023-04-01T09:00:00Z|2023-04-01T10:00:00Z|NULL|-2|Research value is negative.'",
-      "Line 17: Invalid event_id format (must be UUID): 'duplicate-id|Duplicate ID Event|2023-04-02T09:00:00Z|2023-04-02T10:00:00Z|NULL|6|This ID will be duplicated below.'",
-      "Line 20: Invalid event_id format (must be UUID): 'another-bad-line|Incorrect Date Format|2023/01/03 10:00|2023/01/03 11:00|NULL|4|Date not in ISO format.'",
-      "Line 22: Invalid event_id format (must be UUID): 'just|a|few|fields|NULL|1|Too few fields.'",
-      "Line 23: Invalid event_id format (must be UUID): 'duplicate-id|Another Duplicate ID Event|2023-04-02T11:00:00Z|2023-04-02T12:00:00Z|NULL|7|This ID is a duplicate.'"
+        "Line 6: Invalid event_id format (must be UUID): 'malformed-id-1|Broken Event|2023-01-02T09:00:00Z|2023-01-02T10:00:00Z|NULL|5|Missing one field.'",
+        "Line 7: Invalid event_id format (must be UUID): 'invalid-value|Negative Research Value|2023-04-01T09:00:00Z|2023-04-01T10:00:00Z|NULL|-2|Research value is negative.'",
+        "Line 17: Invalid event_id format (must be UUID): 'duplicate-id|Duplicate ID Event|2023-04-02T09:00:00Z|2023-04-02T10:00:00Z|NULL|6|This ID will be duplicated below.'",
+        "Line 20: Invalid event_id format (must be UUID): 'another-bad-line|Incorrect Date Format|2023/01/03 10:00|2023/01/03 11:00|NULL|4|Date not in ISO format.'",
+        "Line 22: Invalid event_id format (must be UUID);      Invalid start_date format;      Invalid end_date format: 'just|a|few|fields|NULL|1|Too few fields.'",
+        "Line 23: Invalid event_id format (must be UUID): 'duplicate-id|Another Duplicate ID Event|2023-04-02T11:00:00Z|2023-04-02T12:00:00Z|NULL|7|This ID is a duplicate.'"
     ],
-    "startTime": "2025-07-08T06:28:44.185Z",
-    "endTime": "2025-07-08T06:28:44.311Z",
+    "startTime": "2025-07-08T08:08:04.646Z",
+    "endTime": "2025-07-08T08:08:04.747Z",
     "summary": {
       "totalRecords": 27,
       "validRecords": 27,
