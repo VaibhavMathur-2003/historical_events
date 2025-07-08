@@ -39,8 +39,8 @@ function validateLine(fields) {
     errors.push("Invalid parent_id format (must be UUID or NULL)");
   }
 
-  if (res_value && isNaN(parseInt(res_value))) {
-    errors.push("research_value must be a number");
+  if (res_value < 0 || isNaN(parseInt(res_value))) {
+    errors.push("research_value must be a positive number");
   }
 
   return errors.length > 0 ? errors.join(";      ") : null;
