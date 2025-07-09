@@ -91,7 +91,7 @@ async function ingestFile(filePath, jobId) {
       
       function visit(record) {
         if (visiting.has(record.eventId)) {
-          console.warn(`⚠️  Circular dependency detected for event ${record.eventId}`);
+          console.warn(`Circular dependency detected for event ${record.eventId}`);
           return;
         }
         

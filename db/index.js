@@ -27,13 +27,12 @@ async function dropAndCreateDatabase() {
   });
   try {
     await client.connect();
-    // Terminate all connections to the target DB
     await client.query(`SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = $1`, [PG_DATABASE]);
     await client.query(`DROP DATABASE IF EXISTS "${PG_DATABASE}"`);
     await client.query(`CREATE DATABASE "${PG_DATABASE}"`);
     console.log(`Database "${PG_DATABASE}" dropped and created.`);
   } catch (err) {
-    console.error('❌ Error dropping/creating database:', err.message);
+    console.error('Error creating database:', err.message);
     throw err;
   } finally {
     await client.end();

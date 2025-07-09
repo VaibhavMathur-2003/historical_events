@@ -1,3 +1,5 @@
+const PriorityQueue = require('js-priority-queue');
+
 function buildGraph(events) {
   const graph = {};
   
@@ -25,20 +27,20 @@ function findShortestPath(graph, eventMap, sourceId, targetId) {
   }
 
   const visited = new Set();
-  const queue = [
-    {
-      id: sourceId,
-      path: [sourceId],
-      totalDuration: eventMap.get(sourceId)?.duration_minutes || 0,
-    },
-  ];
+  const queue = new PriorityQueue({
+    comparator: (a, b) => a.totalDuration - b.totalDuration
+  });
+
+  queue.queue({
+    id: sourceId,
+    path: [sourceId],
+    totalDuration: eventMap.get(sourceId)?.duration_minutes || 0,
+  });
 
   let shortest = null;
 
   while (queue.length) {
-    
-    queue.sort((a, b) => a.totalDuration - b.totalDuration);
-    const current = queue.shift();
+    const current = queue.dequeue();
 
     if (visited.has(current.id)) continue;
     visited.add(current.id);
@@ -52,7 +54,7 @@ function findShortestPath(graph, eventMap, sourceId, targetId) {
     for (const neighborId of neighbors) {
       if (!visited.has(neighborId)) {
         const neighborDuration = eventMap.get(neighborId)?.duration_minutes || 0;
-        queue.push({
+        queue.queue({
           id: neighborId,
           path: [...current.path, neighborId],
           totalDuration: current.totalDuration + neighborDuration,
